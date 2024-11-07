@@ -1,12 +1,13 @@
+import prisma from "../../api/db";
+
 export default async function Entries() {
   // TODO: Switch this to fetch data
-  let data = await fetch("https://api.vercel.app/blog");
-  let posts = await data.json();
+  let data = await prisma.recipe.findMany();
 
   return (
     <ul>
-      {posts.map((post) => (
-        <li key={post.id}>{post.title}</li>
+      {data.map((post) => (
+        <li key={post.id}>{post.name}</li>
       ))}
     </ul>
   );
