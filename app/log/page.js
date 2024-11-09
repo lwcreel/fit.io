@@ -1,3 +1,15 @@
 export default function Log() {
-  return <h1>Hello, Log!</h1>;
+  async function search(formData) {
+    "use server";
+
+    const query = formData.get("query");
+    return `You searched for '${query}'`;
+  }
+
+  return (
+    <form action={console.log(search)}>
+      <input name="query" />
+      <button type="submit">Search</button>
+    </form>
+  );
 }
