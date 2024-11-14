@@ -1,8 +1,9 @@
-import prisma from "../api/db";
 import styles from "./styles.module.css";
+import getAllEntries from "../api/entries";
 
 export default async function Entries() {
-  let data = await prisma.entry.findMany();
+  let data = await getAllEntries();
+
   console.log(data);
 
   let entries = data.map((entry) => {
