@@ -1,8 +1,8 @@
-import { ExerciseModel } from "./ExerciseModel";
+import { ExerciseModel } from "../ExerciseModel";
 
 export type EntryModel = {
   id: number;
-  exercises: string;
+  exercises: ExerciseModel[];
   notes: string;
   createdDate: Date;
   updatedDate: Date;
